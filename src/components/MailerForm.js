@@ -1,11 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react'
+import CSVReader from 'react-csv-reader'
 
-export const MailerForm = ({props}) => {
+export const MailerForm = () => {
+    
+    const [Tickets, setTickets] = useState([])
+    const [readCSV, setreadCSV] = useState([])
+    
+
+    const readCSVDataToTickets = async (ticketArray) => {
+        let headers = ticketArray[0]
+        let data = ticketArray.slice(1)
+        let newTickets = []
+        
+        data.forEach((ticket) => {
+            let newTicket = {}
+            ticket.forEach((ticketData, id) => {
+                newTicket[headers[id]] = ticketData
+            })
+            newTickets.push(newTicket)
+        })
+        setTickets(newTickets)
+    }
+
     return (
         <div className="">
             <section className="my-2">
-                <label htmlFor="csv" className="mr-2">File</label>
-                <input type="file" name="csv" id="csv" />
+                <CSVReader onFileLoaded={(data) => setreadCSV(data)} />
             </section>
 
             <section className="my-2">
@@ -17,7 +37,8 @@ export const MailerForm = ({props}) => {
                 <textarea name="message" id="msg" placeholder="Type your message in here" cols="100" rows="20"></textarea>
             </section>
 
-            <button>Send</button>
+            <button onClick={() => { readCSVDataToTickets(readCSV)}}>Send</button>
+
         </div>
     )
 }

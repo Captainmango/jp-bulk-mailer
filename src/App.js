@@ -1,5 +1,5 @@
 import './App.css';
-import { CSVRead } from './containers/CSVRead';
+import { CSVRead } from './routes/CSVRead';
 
 function App() {
   return (
