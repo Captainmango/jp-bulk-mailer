@@ -23,21 +23,21 @@ export const MailerForm = () => {
     }
 
     return (
-        <div className="">
+        <div className="is-centered">
             <section className="my-2">
                 <CSVReader onFileLoaded={(data) => setreadCSV(data)} />
             </section>
 
             <section className="my-2">
                 <label className="mr-2">Subject</label>
-                <input type="text" name="title" id="title" size="87"/>
+                <input className="input" type="text" name="title" id="title" size="87"/>
             </section>
             
             <section className="">
-                <textarea name="message" id="msg" placeholder="Type your message in here" cols="100" rows="20"></textarea>
+                <textarea className="textarea" name="message" id="msg" placeholder="Type your message in here" cols="100" rows="20"></textarea>
             </section>
 
-            <button onClick={() => { readCSVDataToTickets(readCSV)}}>Send</button>
+            <button className="button is-primary my-3" onClick={() => { readCSVDataToTickets(readCSV)}}>Send</button>
 
         </div>
     )

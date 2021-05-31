@@ -5,7 +5,3 @@ test("is able to support filereader", () => {
     expect(window.FileReader).toBe(FileReader)
 
 })
-
-test("is able to use fileReader to read a CSV"), () => {
-
-})

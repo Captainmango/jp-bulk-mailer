@@ -3,8 +3,10 @@ import { CSVRead } from './routes/CSVRead';
 
 function App() {
   return (
-    <div className="container pt-4">
-      <CSVRead />
+    <div className="container">
+      <section className="columns is-centered">
+        <CSVRead />
+      </section>
     </div>
   );
 }
